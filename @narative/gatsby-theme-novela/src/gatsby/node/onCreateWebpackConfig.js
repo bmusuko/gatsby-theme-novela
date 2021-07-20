@@ -1,6 +1,12 @@
 const path = require('path');
 
-module.exports = ({ actions }) => {
+module.exports = ({ actions, loaders }) => {
+  const jsLoader = loaders.js()
+
+  if (!jsLoader) {
+    return
+  }
+
   actions.setWebpackConfig({
     resolve: {
       alias: {
@@ -12,5 +18,13 @@ module.exports = ({ actions }) => {
       },
       extensions: ['.js', '.json', '.ts', '.tsx'],
     },
+    // module: {
+    //   rules: [
+    //     {
+    //       test: /\.tsx?$/,
+    //       use: jsLoader,
+    //     },
+    //   ],
+    // },
   });
 };

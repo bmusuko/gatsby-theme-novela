@@ -6,3 +6,18 @@ exports.onCreateWebpackConfig = require('@narative/gatsby-theme-novela/src/gatsb
 exports.onPreBootstrap = require('@narative/gatsby-theme-novela/src/gatsby/node/onPreBootstrap');
 exports.sourceNodes = require('@narative/gatsby-theme-novela/src/gatsby/node/sourceNodes');
 exports.createSchemaCustomization = require('@narative/gatsby-theme-novela/src/gatsby/node/createSchemaCustomization');
+
+const resolvableExtensions = () => [`.ts`, `.tsx`]
+
+function onCreateBabelConfig({ actions }) {
+  actions.setBabelPreset({
+    name: `@babel/preset-typescript`,
+    options: {
+       isTSX: true,
+       allExtensions: true,
+    },
+  })
+}
+
+exports.resolvableExtensions = resolvableExtensions
+exports.onCreateBabelConfig = onCreateBabelConfig
