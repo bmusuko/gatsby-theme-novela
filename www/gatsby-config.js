@@ -74,6 +74,12 @@ const plugins = [
         "https://narative.us19.list-manage.com/subscribe/post?u=65ef169332a03669b9538f6ef&amp;id=c55c426282",
     },
   },
+  {
+    resolve: 'gatsby-plugin-disqus',
+    options: {
+      shortname: 'https-blog-bmusuko-tech',
+    },
+  },
 ];
 
 /**

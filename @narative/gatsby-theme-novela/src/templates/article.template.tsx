@@ -22,6 +22,9 @@ import ArticleFooter from './article.footer.template';
 
 import { Template } from "@types";
 
+// Custom imports here:
+import { Disqus } from "gatsby-plugin-disqus"
+
 const siteQuery = graphql`
   {
     allSite {
@@ -29,6 +32,7 @@ const siteQuery = graphql`
         node {
           siteMetadata {
             name
+            siteUrl
           }
         }
       }
@@ -44,8 +48,15 @@ const Article: Template = ({ pageContext, location }) => {
 
   const results = useStaticQuery(siteQuery);
   const name = results.allSite.edges[0].node.siteMetadata.name;
+  const siteURL = results.allSite.edges[0].node.siteMetadata.siteUrl;
 
   const { article, authors, next } = pageContext;
+
+  const disqusConfig = {
+    url: `${siteURL + location.pathname}`,
+    identifier: article.id,
+    title: article.title,
+  }
 
   useEffect(() => {
     const calculateBodySize = throttle(() => {
@@ -96,6 +107,9 @@ const Article: Template = ({ pageContext, location }) => {
           <ArticleShare />
         </MDXRenderer>
       </ArticleBody>
+      <div style={{maxWidth: '680px', margin: '0 auto', marginBottom: '2rem'}}>
+        <Disqus config={disqusConfig} />
+      </div>
       <ArticleFooter pageContext={pageContext} />
       {next.length > 0 && (
         <NextArticle narrow>
