@@ -1,52 +1,34 @@
 require("dotenv").config();
 
 const siteMetadata = {
-  title: `Novela by Narative`,
-  name: `Narative`,
-  siteUrl: `https://novela.narative.co`,
-  description: `This is my description that will be used in the meta tags and important for search results`,
+  title: `Blog by Bram`,
+  name: `Bram`,
+  siteUrl: `https://blog.bmusuko.tech/`,
+  description: `This is personal blog by bram musuko panjaitan discuss tech, book, movie, and many other things`,
   hero: {
-    heading: `Welcome to Novela, the simplest way to start publishing with Gatsby.`,
+    heading: `Welcome to my blog, where I write about things that I like and I don't`,
     maxWidth: 652,
   },
   social: [
     {
-      url: `https://twitter.com/narative`,
+      name: `linkedin`,
+      url: `https://www.linkedin.com/in/bram-musuko-panjaitan-64410916a/`,
     },
     {
-      url: `https://behance.com/narative`,
+      name: `github`,
+      url: `https://github.com/bmusuko`,
     },
     {
-      url: `https://github.com/narative`,
+      name: `twitter`,
+      url: `https://twitter.com/bmusuko`,
     },
     {
-      url: `https://instagram.com/narative.co`,
-    },
-    {
-      url: `https://www.linkedin.com/company/narative/`,
-    },
-    {
-      url: `https://dribbble.com/narativestudio`,
-    },
-    {
-      url: `https://youtube.com`,
-    },
-    {
-      name: 'stackoverflow',
-      url: `https://bit.ly/1x0885j`,
-    },
-    {
-      url: `https://digitalocean.com`,
-    },
-    {
-      url: `https://tripadvisor.com`,
-    },
-    {
-      url: `https://notion.so`,
+      name: `instagram`,
+      url: `https://instagram.com/bmusuko`,
     },
     {
       name: `mailto`,
-      url: `mailto:`,
+      url: `mailto:bram.musuko@gmail.com`,
     },
   ],
 };
@@ -60,7 +42,7 @@ const plugins = [
       rootPath: "/",
       basePath: "/",
       authorsPage: true,
-      mailchimp: true,
+      mailchimp: false,
       sources: {
         local: true,
         contentful: false,
@@ -82,7 +64,7 @@ const plugins = [
   {
     resolve: `gatsby-plugin-google-analytics`,
     options: {
-      trackingId: "UA-118232427-3",
+      trackingId: "UA-202661994-1",
     },
   },
   {

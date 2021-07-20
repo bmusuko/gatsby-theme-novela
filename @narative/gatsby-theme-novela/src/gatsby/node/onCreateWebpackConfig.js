@@ -1,10 +1,10 @@
 const path = require('path');
 
 module.exports = ({ actions, loaders }) => {
-  const jsLoader = loaders.js()
+  const jsLoader = loaders.js();
 
   if (!jsLoader) {
-    return
+    return;
   }
 
   actions.setWebpackConfig({
